@@ -25,6 +25,9 @@ const Item = ({ data }) => {
         <Typography variant="body2" color="text.secondary">
           {data.description}
         </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Stock: {data.stock}
+        </Typography>
       </CardContent>
       <CardActions>
         <Button size="small">Add to Cart</Button>
