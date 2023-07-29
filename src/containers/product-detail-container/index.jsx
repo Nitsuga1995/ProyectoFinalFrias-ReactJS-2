@@ -1,5 +1,5 @@
 import React from 'react';
-import { getProduct } from '../../sdk/products';
+import { getProducts } from '../../sdk/products';
 import { useParams } from 'react-router-dom';
 import ProductDetail from '../../components/product-detail';
 
@@ -8,16 +8,19 @@ const ProductDetailsContainer = () => {
   const { id } = useParams();
 
   React.useEffect(() => {
-    getProduct(id)
+    getProducts()
       .then((res) => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }
         return res.json();
       })
-      .then((res) => {
-        setData(res);
-        console.log(res); // Verificar si los datos se reciben correctamente
+      .then((data) => {
+        for (var i = 0; i < data.length; i++){
+          if (data[i].id == id){
+            setData(data[i]);
+          }
+        }
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
