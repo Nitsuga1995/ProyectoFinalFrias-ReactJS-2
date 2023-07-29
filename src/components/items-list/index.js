@@ -5,15 +5,14 @@ import { CircularProgress } from '@mui/material'
 const ItemsList = ({ items, loading }) => {
   return (
     <div style={containerStyle}>
-        {
-            Boolean(loading) ?
-            <CircularProgress value={30} variant="soft" />
-            :
-                items.map((item) => <Item data={item}/>)
-        }
+      {Boolean(loading) ? (
+        <CircularProgress variant='indeterminate' />
+      ) : (
+        items.map((item, index) => <Item key={item.title + index} data={item} />)
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default ItemsList
 

@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import ItemContainer from './containers/item-container';
 import NavBar from './components/nav-bar';
-import ProductDetailsContainer from './containers/product-detail';
+import ProductDetailsContainer from './containers/product-detail-container';
 
 function App() {
   return (

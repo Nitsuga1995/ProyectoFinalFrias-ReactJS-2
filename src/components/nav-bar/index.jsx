@@ -6,11 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import AdbIcon from '@mui/icons-material/Adb';
+
 import image from './logo.png';
-import { Link }  from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Menu } from '@mui/material';
+import CartWidget from '../cart-widget';
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -26,10 +26,10 @@ const NavBar = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="x1">
-        <Toolbar disableGutters>
-        <Button>
-          <Box component="img" src={image} alt="logo" ></Box>
-        </Button>
+        <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Link to="/products/all">
+            <Box component="img" src={image} alt="logo"></Box>
+          </Link>
           <Typography
             variant="h4"
             noWrap
@@ -76,7 +76,6 @@ const NavBar = () => {
               }}
             ></Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -85,7 +84,6 @@ const NavBar = () => {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -95,14 +93,11 @@ const NavBar = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 0, paddingLeft:190}}>
-            <Link to="/cart" style={{ textDecoration: 'none', color: '#fff'}}>
-              Cart
-            </Link>
-          </Box>
+            <CartWidget />
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
+};
+
 export default NavBar;

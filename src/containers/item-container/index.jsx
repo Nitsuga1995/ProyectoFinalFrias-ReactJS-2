@@ -38,7 +38,7 @@ const ItemContainer = () => {
       .catch(error => {
         console.error('Error fetching products:', error);
       })
-      .finally(() => setLoading(false)); // Se ejecutará después de que la promesa se resuelva o se rechace
+      .finally(() => setLoading(false)); // Se ejecutará después de que la promesa se resuelva o se rechace.
   }, [category]);
 
   return (
