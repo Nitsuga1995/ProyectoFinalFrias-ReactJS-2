@@ -10,9 +10,13 @@ import image from './logo.png';
 import { Link } from 'react-router-dom';
 import { Menu } from '@mui/material';
 import CartWidget from '../cart-widget';
+import { AppContext } from '../../context';
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const { quantityCart } = React.useContext(AppContext);
+  console.log(quantityCart)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -92,7 +96,7 @@ const NavBar = () => {
           >
             LOGO
           </Typography>
-            <CartWidget />
+            <CartWidget cartQuantity={quantityCart}/>
         </Toolbar>
       </Container>
     </AppBar>

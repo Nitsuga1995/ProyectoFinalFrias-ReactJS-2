@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button } from '@mui/material'
 
-
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, addToCarrito }) => {
     const [counter, setCounter] = React.useState(1)
+
 
     const handleAdd = () => {
       if (counter < stock) {
@@ -17,6 +17,11 @@ const ItemCount = ({ stock }) => {
       }
       setCounter(counter -1)
     }
+
+    const handleCarrito = () => {
+      addToCarrito(counter);
+      setCounter(1);
+    }
     
   return (
     <div>
@@ -25,7 +30,7 @@ const ItemCount = ({ stock }) => {
             <p>{counter}</p>
           <Button onClick={handleAdd}color='primary'>+</Button>
         </div>
-    <Button size="small">Agregar al carrito</Button>
+    <Button onClick={handleCarrito} size="small">Agregar al carrito</Button>
     </div>
   )
 }

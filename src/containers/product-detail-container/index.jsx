@@ -17,6 +17,7 @@ const ProductDetailsContainer = () => {
       })
       .then((data) => {
         for (var i = 0; i < data.length; i++){
+          // eslint-disable-next-line eqeqeq
           if (data[i].id == id){
             setData(data[i]);
           }
